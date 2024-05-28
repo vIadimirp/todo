@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo list</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div id="todo">
+            <div id="todo__header">
+                <div id="todo__heading">Todo list</div>
+                <div id="todo__add">
+                    <button id="add-button">+</button>
+                    <input id="what" placeholder="What to do..."></input>
+                </div>
+            </div>
+            <div id="todo__items"></div>
+            <div id="todo__footer">
+                <div id="todo__filters">
+                    <button onclick="setFilter(0);" class="todo__filter" id="filter-all">All (<span id="total">0</span>)</button>
+                    <button onclick="setFilter(1);" class="todo__filter" id="filter-done">Done (<span id="done">0</span>)</button>
+                    <button onclick="setFilter(2);" class="todo__filter" id="filter-undone">Undone (<span id="undone">0</span>)</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./script.js"></script>
+</html>

@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --bg: #ddd;
+    --darker-bg: #cacaca;
+    --todo: #eee;
+    --item: #fff;
+    --done: #0a0;
+    --lighter-done: #afa;
+    --darker-done: #080;
+    --delete: #f55;
+    --lighter-delete: #faa;
+    --darker-delete: #800;
+    --grey: #888;
+    --lighter-grey: #aaa;
+    --darker-grey: #555;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Open Sans', 'sans-serif';
+}
+body {
+    background-color: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    overflow-x: hidden;
+    padding: 40vh 0;
+}
+
+div#todo {
+    height: fit-content;
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--todo);
+    border-radius: 20px;
+    padding: 15px;
+}
+div#todo__heading {
+    width: 100%;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+div#todo__add {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+div#todo__add input#what {
+    color: #000;
+    height: 38px;
+    width: 38px;
+    transition: all .3s;
+    background-color: var(--item);
+    border-radius: 100px;
+    padding: 10px;
+    opacity: 0%;
+}
+div#todo__add input#what.active {
+    width: 100%;
+    opacity: 100%;
+    border-radius: 10px;
+}
+button#add-button {
+    cursor: pointer;
+    transition: all .3s;
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    padding: 10px;
+    line-height: .6;
+    background-color: var(--bg);
+    font-size: 27px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+button#add-button.active {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    transform: translateX(265px);
+    background-color: var(--item);
+}
+button#add-button:hover {
+    background-color: var(--darker-bg);
+}
+button#add-button.active:hover {
+    background-color: var(--todo);
+}
+
+div#todo__items {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+div#todo__items.empty {
+    margin-top: 0;
+}
+
+div.todo__item {
+    display: flex;
+    position: relative;
+    background-color: var(--item);
+    border-radius: 15px;
+    padding: 10px;
+    height: 100px;
+    align-items: center;
+}
+div.todo__item button.done-checkbox {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    background-color: var(--lighter-grey);
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 0 5px;
+    transition: all .3s;
+}
+div.todo__item button.done-checkbox span {
+    transition: all .3s;
+    color: var(--darker-grey);
+}
+div.todo__item button.done-checkbox:hover {
+    background-color: var(--grey);
+}
+div.todo__item button.done-checkbox:hover span {
+    color: var(--item);
+}
+div.todo__item button.done-checkbox.active {
+    transition: all .3s;
+    background-color: var(--lighter-done);
+}
+div.todo__item button.done-checkbox.active:hover {
+    background-color: var(--done);
+}
+div.todo__item button.done-checkbox.active span {
+    color: var(--darker-done);
+}
+div.todo__item button.done-checkbox.active:hover span {
+    color: var(--item);
+}
+div.todo__item button.remove-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    background-color: var(--lighter-delete);
+    height: 100%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0 5px;
+    transition: all .3s;
+}
+div.todo__item button.remove-btn span {
+    transition: all .3s;
+    color: var(--darker-delete);
+}
+div.todo__item button.remove-btn:hover {
+    background-color: var(--delete);
+}
+div.todo__item button.remove-btn:hover span {
+    color: var(--item);
+}
+div.todo__item div.text {
+    margin-left: 40px;
+    width: 490px;
+    overflow-x:visible;
+}
+
+div#todo__filters {
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+}
+button.todo__filter {
+    cursor: pointer;
+    transition: all .3s;
+    background-color: var(--lighter-grey);
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 20px;
+}
+button.todo__filter:hover {
+    background-color: var(--grey);
+}
+button.todo__filter.active {
+    background-color: var(--grey);
+}
